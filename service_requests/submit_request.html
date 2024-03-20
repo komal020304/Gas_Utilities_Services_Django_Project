@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Service Request</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+      }
+      h2 {
+        margin-bottom: 20px;
+      }
+      form {
+        max-width: 500px;
+        margin: 0 auto;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      select,
+      textarea,
+      input[type="file"],
+      button {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+      button {
+        background-color: #4caf50;
+        color: white;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Submit Service Request</h2>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <label for="id_request_type">Request Type:</label>
+      <select name="request_type" id="id_request_type">
+        <option value="Gas Leak">Gas Leak</option>
+        <option value="Meter Reading">Meter Reading</option>
+        <!-- Add more options as needed --></select
+      ><br />
+      <label for="id_details">Details:</label><br />
+      <textarea name="details" id="id_details" cols="30" rows="5"></textarea
+      ><br />
+      <label for="id_attachment">Attachment:</label>
+      <input type="file" name="attachment" id="id_attachment" /><br />
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
